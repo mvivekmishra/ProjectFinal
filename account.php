@@ -1,6 +1,6 @@
 <?php
 
-//final class account extends \database\model
+//final class account extends \database\model \\no namespace
 final class account extends model
 {
     public $id;
