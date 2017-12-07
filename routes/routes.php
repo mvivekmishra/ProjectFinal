@@ -46,20 +46,28 @@ class routes
 		$route =new route();
 		$route->http_method='POST';
 		$route->action='signup';
-		$route->page='accounts';
+		$route->page='accounts'; //changed
 		$route->controller='accountsController';
 		$route->method='signup';
 		$routes[]=$route;
 		
-		//new user login n registration
+		//new user login n registration//same as keith 
 		$route= new route();
 		$route->http_method='POST';
 		$route->action='register';
-		$route->page='accounts';
+		$route->page='accounts'; //changed
 		$route->controller='accountsController';
-		$route->controller='register';
+		$route->method='register';// call method
 		$routes[]=$route;
 		
+		//GET METHOD index.php?page=accounts&action=all
+        $route = new route();
+        $route->http_method = 'GET';
+        $route->action = 'all';
+        $route->page = 'accounts';
+        $route->controller = 'accountsController';
+        $route->method = 'all';
+        $routes[] = $route;
 		//This is an examole of the post for tasks to show a task
         //GET METHOD index.php?page=tasks&action=show
         $route = new route();
@@ -83,6 +91,25 @@ class routes
         $route->controller = 'tasksController';
         $route->method = 'all';
         $routes[] = $route;
+		//This goes in the login form action method
+        //GET METHOD index.php?page=accounts&action=login
+        $route = new route();
+        $route->http_method = 'POST';
+        $route->action = 'login';
+        $route->page = 'accounts';
+        $route->controller = 'accountsController';
+        $route->method = 'login';
+        $routes[] = $route;
+        //GET METHOD index.php?page=accounts&action=logout
+        $route = new route();
+        $route->http_method = 'POST';
+        $route->action = 'logout';
+        $route->page = 'accounts';
+        $route->controller = 'accountsController';
+        $route->method = 'logout';
+        $routes[] = $route;
+		
+		
 		//get method index.php?page=tasks&action=allOneUser
 		$route=new route();
 		$route->http_method='GET';
