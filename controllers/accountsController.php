@@ -1,9 +1,6 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: kwilliams
- * Date: 11/27/17
- * Time: 5:32 PM
+ * 
  */
 
 
@@ -46,7 +43,9 @@ class accountsController extends http\controller
         //USE THE ABOVE TO SEE HOW TO USE Bcrypt
         //print_r($_POST);
         //this just shows creating an account.
-        $record = new account();
+		$user=accounts::findUserbyUsername($_REQUEST['email']); //for testing 
+        if($user==FALSE){
+		$record = new account();
         /*$record->email = "kwilliam@njit.edu";
         $record->fname = "test2";
         $record->lname = "cccc2";
@@ -54,22 +53,27 @@ class accountsController extends http\controller
         $record->birthday = "0";
         $record->gender = "male";
         $record->password = "12345";*/
-		$record->email=$_POST['email'];
+		$record->email = $_POST['email'];
 		$record->fname = $_POST['fname'];
         $record->lname = $_POST['lname'];
         $record->phone = $_POST['phone'];
         $record->birthday = $_POST['birthday'];
         $record->gender = $_POST['gender'];        
-		$record->password = $_POST['password'];
+		$record->password = $record->setPassword($_POST['password']);
 		
         $record->save();
-		header('location : index.php');
+		header('Location : index.php');
     }
-
+	else{
+	echo 'already registered';
+	}
+	}
     //this is the function to save the user the user profile
     public static function store()
     {
-        print_r($_POST);
+        // register user here
+		
+		print_r($_POST);
 
     }
 
@@ -94,15 +98,34 @@ class accountsController extends http\controller
         //print_r($_POST);
         $record= new account();
 		$record= accounts::findUserbyUsername($_POST['uname']);
-		$checkpsw= accounts::checkPassword($_POST['psw'], $record->passowrd);
-		if ($checkpsw==0){
-			header('location: index.php');
-		}else{
+		//$checkpsw= accounts::checkPassword($_POST['psw'], $record->passowrd);
+		print_r($record);
+		echo '1';
+		if($record==FALSE){
+			//header('location: index.php');
+		echo 'user not avlble';}
+		else{ 
+		if($record->checkPassword($_POST['psw'])==TRUE){
+			echo 'login';
 			session_start();
-			$_SESSION['userid']=$record->id;
-			header ('location: index.php?page=tasks&action=allOnceUser&id='.$record->id);
+			$_SESSION["userID"]=$record->id;
+			$_SESSION["userEmail"]=$record->email;
+			print_r($_SESSION);
+			header('Location:index.php?page=tasks&action=allOneUser&id='.$record->id); // change to one user 
+		}else{
+			//session_start();
+			//$_SESSION['userid']=$record->id;
+			//header ('location: index.php?page=tasks&action=allOnceUser&id='.$record->id);
+		echo 'wrong pwd';
 		}
     }
 
 
 }
+public static function logout()
+{
+	session_destroy();
+	header ('Location: index.php');
+}
+}
+?>

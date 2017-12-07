@@ -39,27 +39,40 @@ class tasksController extends http\controller
 
     public static function create()
     {
-        print_r($_POST);
+        //print_r($_POST);
+		self::getTemplate('new_task');
     }
-
+    public static function addTask()
+	{
+		session_start();
+		$record=new todo();
+		$record->ownermail=$_SESSION["userEmail"];
+		$record->ownerid=$_SESSION["userID"];
+		$record->createddate=$_POST['createddate'];
+		$record->duedate=$_POST['duedate'];
+		$record->message=$_POST['message'];
+		$record->isdone=$_POST['isdone'];
+		$record->save();
+		header('Location: index.php=tasks&action=allOneUser&id='.$_SESSION["userID"]);
+	}
     //this is the function to view edit record form
-    public static function edit()
+    /*public static function edit()
     {
         $record = todos::findOne($_REQUEST['id']);
 
         self::getTemplate('edit_task', $record);
 
-    }
+    }*/
 
     //this would be for the post for sending the task edit form
-    public static function store()
+    /*public static function store()
     {
         $record=todos::findOne($_REQUEST['id']);
 		$record->body=$_REQUEST['body'];
 		$record->save();
         print_r($_POST);
 
-    }
+    }*/
 
     //this is the delete function.  You actually return the edit form and then there should be 2 forms on that.
     //One form is the todo and the other is just for the delete button
@@ -67,7 +80,9 @@ class tasksController extends http\controller
     {
         $record=todos::findOne($_REQUEST['id']);
 		$record->delete();
-		print_r($_POST);
+		session_start();
+		//print_r($_POST);
+		header('Location: index.php?page=tasks&action=allOneUser&id='.$_SESSION["userID"]);
 
     }
 	public static function update()
@@ -82,9 +97,12 @@ class tasksController extends http\controller
 		$record->message=$_POST['message'];
 		$record->isdone=$_POST['isdone'];
 		$record->save();
-		echo $_SESSION['userid'];
-		//header('Location:index.php=tasks&action=allOneUser&id='.$_SESSION['userid']);
+		session_start();
+		//echo $_SESSION['userid'];
+		header('Location:index.php=tasks&action=allOneUser&id='.$_SESSION["userID"]);
 	}
 
 
+
 }
+?>
