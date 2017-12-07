@@ -14,7 +14,7 @@ include_once "database.php";
 //this starts the program as a static.  Start tracing the program from here following the classes and methods being called
 $response = http\processRequest::createResponse();
 
-//read the notes below
+//read the notes below for final project 
 
 
 //To make the final project, you need to add routes, controllers, and the html templates in the "pages" folder.
