@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
 
-    <title>WSD Project</title>
+    <title>WSD Project TODO</title>
     <meta name="description" content="WSD Project">
     <meta name="author" content="SitePoint">
 
@@ -43,7 +43,7 @@
 
 
 </form>
-<form action= "index.php?accounts&action=signup" method ="POST">
+<form action= "index.php?page=accounts&action=signup" method ="POST">
 <div class= "container">
 <label><b> Not Registered !</b></label><button type ="submit">Signup</button>
 </div>

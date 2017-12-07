@@ -45,7 +45,7 @@
         <label><b>Password</b></label>
         <input type="password" placeholder="Enter Password" name="password" required></br></br>
 
-        <button type="submit">Register</button></br></br>
+        <button type="submit">Register</button><a href ="index.php">Cancel</a></br></br>
 
     </div>
 
