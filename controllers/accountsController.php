@@ -44,7 +44,7 @@ class accountsController extends http\controller
         //print_r($_POST);
         //this just shows creating an account.
 		$user=accounts::findUserbyUsername($_REQUEST['email']); //for testing 
-        if($user==FALSE){
+        if($user == FALSE){
 		$record = new account();
         /*$record->email = "kwilliam@njit.edu";
         $record->fname = "test2";
@@ -76,14 +76,38 @@ class accountsController extends http\controller
 		print_r($_POST);
 
     }
+	
+	public static function update_profile()
+	{
+		$record = accounts :: findOne($_REQUEST['id']);
+		$record = new account();
+		$record->id=$records->id;
+		$record->email=$_POST['email'];
+		$record->fname=$_POST['fanme'];
+		$record->lname=$_POST['lname'];
+		$record->phone= $_POST['phone'];
+		$record->birthday=$_POST['birthday'];
+		$record->gender=$_POST['gender'];
+		$record->save();
+		session_start();
+		header('Location: index.php?page=accounts&action=myProf');
+	}
+	
+	public static function show_profile()
+	{
+		session_start();
+		$record= accouts :: findOne($_SESSION['userID']);
+		self:: getTemplate('show_account',$record);
+	}
+		
 
-    public static function edit()
+    /*public static function edit()
     {
         $record = accounts::findOne($_REQUEST['id']);
 
         self::getTemplate('edit_account', $record);
 
-    }
+    }*/
 
     //this is to login, here is where you find the account and allow login or deny.
     public static function login()

@@ -1,10 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: kwilliams
- * Date: 11/27/17
- * Time: 5:32 PM
- */
+
 
 
 //each page extends controller and the index.php?page=tasks causes the controller to be called
@@ -17,7 +12,12 @@ class tasksController extends http\controller
         $record = todos::findOne($_REQUEST['id']);
         self::getTemplate('show_task', $record);
     }
-
+    public static function editTask()
+	{
+		$record=todos::findOne($_REQUEST['id']);
+		self::getTemplate('edit_task', $record);
+	}
+	
     //to call the show function the url is index.php?page=task&action=list_task
 
     public static function all()
