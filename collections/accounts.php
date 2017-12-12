@@ -11,9 +11,11 @@ class accounts extends \database\collection
 		$sql= 'SELECT *FROM ' .$tableName. ' WHERE email="' . $uname.'"';
 		echo $sql;
 		$recordsSet= self::getResults($sql); // return one object ($sql,email)
+		echo $recordsSet; // additional print 
 		if (is_null($recordsSet)){
 			return FALSE;
 		}else
+		
 		{ return $recordsSet[0];}
 		//return $recordsSet[0];
 	}
