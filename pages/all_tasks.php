@@ -1,4 +1,4 @@
-<!doctype html>
+<!--<!doctype html>
 
 <html lang="en">
 <head>
@@ -13,7 +13,7 @@
     <!--[if lt IE 9]>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
     <![endif]-->
-</head>
+<!--</head>
 
 <body>
 <form action="index.php?page=accounts&action=logout" method="post" id="form3">
@@ -22,6 +22,7 @@
     <button type="submit" form="form3" value="logout">Logout</button>
 </form>
 
+<?php include 'headerPage.php'?>
 <?php
 //this is how you print something
 
