@@ -62,7 +62,7 @@ class accountsController extends http\controller
 		$record->password = $record->setPassword($_POST['password']);
 		
         $record->save();
-		header('Location : index.php');
+		header('Location : index.php?page=accounts&action=login');
     }
 	else{
 	echo 'already registered';
