@@ -87,6 +87,14 @@ class routes
         $route->controller = 'accountsController';
         $route->method = 'show_profile';
         $routes[] = $route;
+        //GET METHOD index.php?page=accounts&action=edit
+        $route = new route();
+        $route->http_method = 'POST';
+        $route->action = 'edit';
+        $route->page = 'accounts';
+        $route->controller = 'accountsController';
+        $route->method = 'edit_profile';
+        $routes[] = $route;
         //GET METHOD index.php?page=accounts&action=update
         $route = new route();
         $route->http_method = 'POST';
@@ -94,6 +102,30 @@ class routes
         $route->page = 'accounts';
         $route->controller = 'accountsController';
         $route->method = 'update_profile';
+        $routes[] = $route;
+        //GET METHOD index.php?page=accounts&action=showProf
+        $route = new route();
+        $route->http_method = 'GET';
+        $route->action = 'showProf';
+        $route->page = 'accounts';
+        $route->controller = 'accountsController';
+        $route->method = 'show_profile';
+        $routes[] = $route;
+        //GET METHOD index.php?page=accounts&action=showProf
+        $route = new route();
+        $route->http_method = 'POST';
+        $route->action = 'editPass';
+        $route->page = 'accounts';
+        $route->controller = 'accountsController';
+        $route->method = 'editPass';
+        $routes[] = $route;
+        //GET METHOD index.php?page=accounts&action=showProf
+        $route = new route();
+        $route->http_method = 'POST';
+        $route->action = 'updatePass';
+        $route->page = 'accounts';
+        $route->controller = 'accountsController';
+        $route->method = 'updatePass';
         $routes[] = $route;
         //This is an examole of the post for tasks to show a task
         //GET METHOD index.php?page=tasks&action=show
