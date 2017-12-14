@@ -1,5 +1,4 @@
 <?php
-
 final class todo extends database\model
 {
     public $id;
@@ -10,13 +9,10 @@ final class todo extends database\model
     public $message;
     public $isdone;
     protected static $modelName = 'todo';
-
     public static function getTablename()
     {
-
         $tableName = 'todos';
         return $tableName;
     }
 }
-
 ?>
