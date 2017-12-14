@@ -4,9 +4,7 @@
 <head>
     <meta charset="utf-8">
 
-    <title>WSD Project TODO</title>
-    <meta name="description" content="The HTML5 Herald">
-    <meta name="author" content="SitePoint">
+    <title>WSD Project 2</title>
 
     <link rel="stylesheet" href="css/styles.css?v=1.0">
 

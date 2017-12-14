@@ -37,7 +37,7 @@
 		
 			<!-- Logo -->
 			<div class="navbar-header">
-				<a href="index.php" class="navbar-brand" /> TODO Project </a>
+				<a href="index.php" class="navbar-brand" />WSD TODO Project </a>
 			</div>
 	
 			<!-- Menu on the right -->
@@ -53,20 +53,17 @@
 		</div>
 		
 	</nav>
-			
 
-<form action="index.php?page=accounts&action=register" method="POST">   
-         
-		
+<form action="index.php?page=accounts&action=register" method="POST">
 
-           <div align= "center" class="container-fluid">
+    
+	<div align= "center" class="container-fluid">
 	
             <div class="form" align="center">
 			<h2> <strong> Sign-Up </strong> </h2>
-			
-		<label><b>Email</b></label>
+        <label><b>Email</b></label>
         <input type="text" placeholder="Enter Email" name="email" required></br></br>
-		
+
         <label><b>First Name</b></label>
         <input type="text" placeholder="Enter First Name" name="fname" required></br></br>
 
@@ -77,17 +74,15 @@
         <input type="text" placeholder="Enter Phone number" name="phone" required></br></br>
 
         <label><b>Birthday</b></label>
-        <input type="text" placeholder="Enter Birthday" name="birthday" required></br></br>
+        <input type="text" placeholder="Enter Birthday" name="bday"></br></br>
 
         <label><b>Gender</b></label>
-        <input type="text" placeholder="Enter Gender" name="gender" required></br></br>
-		
-		
+        <input type="text" placeholder="Enter Gender" name="gender"></br></br>
 
         <label><b>Password</b></label>
         <input type="password" placeholder="Enter Password" name="password" required></br></br>
 
-        <button type="submit">Register</button>&nbsp;&nbsp;<a href ="index.php">Cancel</a></br></br>
+        <button type="submit">Register</button><a href="index.php">Cancel</a></br></br>
 
     </div>
 

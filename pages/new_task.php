@@ -1,45 +1,56 @@
-<!doctype html>
-
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-
-    <link rel="stylesheet" href="css/styles.css?v=1.0">
-
-    <!--[if lt IE 9]>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
-    <![endif]-->
-</head>
-
-<body>
+<?php include 'headerPage.php' ?>
 
 <?php
-//this is how you print something
-//print utility\htmlTable::genarateTableFromMultiArray($data);
 session_start();
+
 ?>
-<form action="index.php?page=accounts&action=logout" method="post" id="form3">
-
-
-    <button type="submit" form="form3" value="logout">Logout</button>
-</form>
 
 <form action="index.php?page=tasks&action=addTask" method="POST">
 
     <div class="container">
-        <label><b>Created Date</b></label>
-        <input type="text" placeholder="Enter Created date" name="createddate" required></br></br>
+        <div class="row">
+            <div class="col-lg-2">
+                <label><b>Created Date</b></label>
+            </div>
+            <div class="col-lg-2">
+                <div class="form-group">
+                     <input type="text" name="createddate" class="form-control" /> 
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-2">
+                <label><b>Due Date</b></label>
+            </div>
+            <div class="col-lg-2">
+                <div class="form-group">
+                    <input type="text" name="duedate" class="form-control" />
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-2">
+                <label><b>Message</b></label>
+            </div>
+            <div class="col-lg-2">
+                <div class="form-group">
+                    <input type="text" name="message" class="form-control">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-2">
+                <label><b>isDone</b></label>
+            </div>
+            <div class="col-lg-1">
+                <div class="form-group">
+                    <input type="text" name="isdone" class="form-control">
+                </div>
+            </div>
+        </div>
 
-        <label><b>Duedate</b></label>
-        <input type="text" placeholder="Enter Due date" name="duedate" ></br></br>
+        <div class="col-lg-2"><button class="btn btn-primary" type="submit">Add Task</button><a href="index.php?page=tasks&action=allOneUser&id=<?php echo $_SESSION["userID"] ?>">Cancel</a></div>
 
-        <label><b>Message</b></label>
-        <input type="text" placeholder="Enter message" name="message" ></br></br>
-
-        <label><b>isdone</b></label>
-        <input type="text" placeholder="Enter isdone" name="isdone"></br></br>
-
-        <button type="submit">Add</button><a href="index.php?page=tasks&action=allOneUser&id=<?php echo $_SESSION["userID"] ?>">Cancel</a> </br></br>
 
     </div>
 
@@ -47,6 +58,7 @@ session_start();
 </form>
 
 
-<script src="js/scripts.js"></script>
+<script type="text/javascript">
+</script>
 </body>
 </html>
