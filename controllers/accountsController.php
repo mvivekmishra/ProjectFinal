@@ -2,12 +2,12 @@
 /**
  * Created by PhpStorm.
  * User: Vivek
- 
+  Account controller to manage user login, signup, edit profile and logout @vm368 
  */
 //each page extends controller and the index.php?page=tasks causes the controller to be called
 class accountsController extends http\controller
 {
-    //each method in the controller is named an action.
+    
     //to call the show function the url is index.php?page=task&action=show
     public static function show()
     {
@@ -24,14 +24,11 @@ class accountsController extends http\controller
     {
         self::getTemplate('new_user');
     }
-    //to call the show function the url is called with a post to: index.php?page=task&action=create
-    //this is a function to create new tasks
-    //you should check the notes on the project posted in moodle for how to use active record here
+    
     //this is to register an account i.e. insert a new account
     public static function register()
 {
-    //https://www.sitepoint.com/why-you-should-use-bcrypt-to-hash-stored-passwords/
-    //USE THE ABOVE TO SEE HOW TO USE Bcrypt
+    
     $user = accounts::findUserbyUsername($_REQUEST['email']);
     if ($user == FALSE) {
         $record = new account();
@@ -41,9 +38,9 @@ class accountsController extends http\controller
         $record->phone = $_POST['phone'];
         $record->birthday = $_POST['bday'];
         $record->gender = $_POST['gender'];
-        //$record->password = $_POST['password'];
         $record->password = $record->setPassword($_POST['password']);
-        //print_r($record);
+        // for error checking print record 
+		//print_r($record);
         $record->save();
         header('Location: index.php');
     }
@@ -110,15 +107,13 @@ class accountsController extends http\controller
     public static function login()
     {
         
-        //        $record = accounts::findUser($_POST['uname']); // testing 
+       //$record = accounts::findUser($_POST['uname']); // testing 
         $record = new account();
         $record = accounts::findUserbyUsername($_POST['uname']);
-        //$checkpsw = accounts::checkPassword($_POST['psw'],$record->password);
-        print_r($record);
-        echo '1';
         if ($record == FALSE) {
-            //header('Location: index.php');
-            echo 'user not found';
+            // for wrong pasword and usrname @vm368
+			header('Location: index.php?wrongpasswordusername=1');
+            
         } else {
             if($record->checkPassword($_POST['psw']) == TRUE) {
                 echo 'login';
@@ -128,7 +123,7 @@ class accountsController extends http\controller
                 print_r($_SESSION);
                 header('Location: index.php?page=tasks&action=allOneUser&id='.$record->id);
             } else {
-                //header('Location: index.php');
+                
                 echo 'enter correct password';
             }
         }

@@ -58,11 +58,10 @@ class tasksController extends http\controller
         header('Location: index.php?page=tasks&action=allOneUser&id='.$_SESSION["userID"]);
     }
 	
-	// working update function on task
+	// working update function on task all testing done 
     public static function update() 
     {
         $records = todos::findOne($_REQUEST['id']);
-        // $record->body = $_REQUEST['body'];
         $record = new todo();
         $record->id=$records->id;
         $record->owneremail=$_POST['owneremail'];
