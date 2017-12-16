@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
 
-    <title>WSD Project 2</title>
+    <title>WSD TODO Project</title>
 
     <link rel="stylesheet" href="css/styles.css?v=1.0">
 

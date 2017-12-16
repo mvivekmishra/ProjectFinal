@@ -4,7 +4,7 @@
 //this is how you print something  $data contains the record that was selected on the table.
 //print_r($data);
 session_start();
-date_default_timezone_set('America/New_York');
+
 ?>
 
 <form action="index.php?page=tasks&action=update&id=<?php echo $data->id; ?> " method="post" id="form1">
@@ -16,7 +16,7 @@ date_default_timezone_set('America/New_York');
             </div>
             <div class="col-lg-2">
                 <div class="form-group">
-                    <input type="text" name="owneremail" class="form-control" value="<?php echo $data->owneremail; ?>" readonly required disabled>
+                    <input type="email" name="owneremail" class="form-control" value="<?php echo $data->owneremail; ?>" readonly required disabled>
                 </div>
             </div>
         </div>
@@ -36,7 +36,7 @@ date_default_timezone_set('America/New_York');
             </div>
             <div class="col-lg-2">
                 <div class="form-group">
-                    <input type="text" name="createddate" class="form-control" value="<?php echo $data->createddate; ?>" readonly disabled>
+                    <input type="date" name="createddate" class="form-control" value="<?php echo $data->createddate; ?>" readonly disabled>
                 </div>
             </div>
         </div>
@@ -46,7 +46,7 @@ date_default_timezone_set('America/New_York');
             </div>
             <div class="col-lg-2">
                 <div class="form-group">
-                    <input type="text" name="duedate" class="form-control" value="<?php echo $data->duedate; ?>">
+                    <input type="date" name="duedate" class="form-control" value="<?php echo $data->duedate; ?>">
                 </div>
             </div>
         </div>

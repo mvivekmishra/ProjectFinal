@@ -22,7 +22,8 @@
             <a class="navbar-brand" href="#">WSD TODO Project</a>
         </div>
         <ul class="nav navbar-nav">
-            <li class="active"><a href="https://www.linkedin.com/in/mvivekmishra">My Linkedin</a></li>
+            <li class="active"><a href="https://www.linkedin.com/in/mvivekmishra">My Profile</a></li>
+			<li class="active"><a href="https://www.linkedin.com/in/keithwilliams5">Prof Profile</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
             <li><font color="white">Not Registerd </font><span class="glyphicon glyphicon-user"></span><button class="btn btn-link navbar-btn" type="submit">Signup</button></li>
@@ -34,14 +35,16 @@
 
 <form action="index.php?page=accounts&action=login" method="POST">
 
-    <div class="container">
+    <div style="color:red;"><?php echo isset($_REQUEST['wrongpasswordusername']) && $_REQUEST['wrongpasswordusername'] == 1 ? "Invalid Password or Username" : "";?></div>
+
+	<div class="container">
         <div class="row">
             <div class="col-lg-2">
                 <label><b>Username</b></label>
             </div>
             <div class="col-lg-2">
                 <div class="form-group">
-                    <input type="text" name="uname" class="form-control" required >
+                    <input type="email" placeholder="vm368@njit.edu" name="uname" class="form-control" required >
                 </div>
             </div>
         </div>

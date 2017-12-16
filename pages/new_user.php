@@ -62,7 +62,7 @@
             <div class="form" align="center">
 			<h2> <strong> Sign-Up </strong> </h2>
         <label><b>Email</b></label>
-        <input type="text" placeholder="Enter Email" name="email" required></br></br>
+        <input type="email" placeholder="vm368@njit.edu" name="email" required></br></br>
 
         <label><b>First Name</b></label>
         <input type="text" placeholder="Enter First Name" name="fname" required></br></br>
@@ -74,13 +74,13 @@
         <input type="text" placeholder="Enter Phone number" name="phone" required></br></br>
 
         <label><b>Birthday</b></label>
-        <input type="text" placeholder="Enter Birthday" name="bday"></br></br>
+        <input type="Date" placeholder="Enter Birthday" name="bday"></br></br>
 
         <label><b>Gender</b></label>
         <input type="text" placeholder="Enter Gender" name="gender"></br></br>
 
         <label><b>Password</b></label>
-        <input type="password" placeholder="Enter Password" name="password" required></br></br>
+        <input type="password" placeholder="Enter Password" pattern=".{6,}" name="password" required></br></br>
 
         <button type="submit">Register</button><a href="index.php">Cancel</a></br></br>
 

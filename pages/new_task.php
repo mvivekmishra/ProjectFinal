@@ -14,7 +14,7 @@ session_start();
             </div>
             <div class="col-lg-2">
                 <div class="form-group">
-                     <input type="text" name="createddate" class="form-control" /> 
+                     <input type="Date" name="createddate" class="form-control" /> 
                 </div>
             </div>
         </div>
@@ -24,7 +24,7 @@ session_start();
             </div>
             <div class="col-lg-2">
                 <div class="form-group">
-                    <input type="text" name="duedate" class="form-control" />
+                    <input type="Date" name="duedate" class="form-control" />
                 </div>
             </div>
         </div>
