@@ -1,6 +1,6 @@
 <?php
 namespace utility;
-//namespace MyProject\mvcName;
+
 class htmlTable
 {
     public static function genarateTableFromMultiArray($array)
